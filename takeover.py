@@ -2,6 +2,7 @@
 from requests import get
 from multiprocessing.dummy import Pool
 import sys
+import tldextract
 class bcolors:
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -17,6 +18,7 @@ try:
         exit()
 except:
     pass
+
 datas_one = [ "<strong>Trying to access your account",
                        "Use a personal domain name",
                         "The request could not be satisfied",
@@ -96,8 +98,9 @@ datas_one = [ "<strong>Trying to access your account",
                         "<title>Help Center Closed | Zendesk</title>"]
 
 
-def star_(d):
+def star_(sw):
     try:
+        d = '{}.{}.{}'.format(tldextract.extract(sw).subdomain,tldextract.extract(sw).domain,tldextract.extract(sw).suffix)
         ht = get("http://{}".format(d)).text
         hts = get("https://{}".format(d)).text #just to make sure ! :)
         print(bcolors.OKBLUE + str('[*] Testing {}'.format(d)) + bcolors.ENDC)
