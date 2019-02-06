@@ -107,10 +107,10 @@ def star_(sw):
         for rep in datas_one:
             if str(rep) in str(ht):
                 print(bcolors.OKGREEN + str('[+] Takeover {}'.format(d)) + bcolors.ENDC)
-                open('takeover.txt','a').write(q[0]+'\n')
+                open('takeover.txt','a').write(d+'\n')
             if str(rep) in str(ht):
                 print(bcolors.OKGREEN + str('[+] Takeover {}'.format(d)) + bcolors.ENDC)
-                open('takeover.txt','a').write(q[0]+'\n')
+                open('takeover.txt','a').write(d+'\n')
     except Exception as e:
         pass
 
